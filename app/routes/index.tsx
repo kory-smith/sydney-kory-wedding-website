@@ -5,9 +5,11 @@ export default function Index() {
   let daysTillWedding = Math.ceil(difference / (1000 * 3600 * 24));
 
   return (
-    <div className="p-8">
+    <div className="p-6">
       <h1 className="text-3xl py-2">Sydney and Kory's Wedding Website!</h1>
-      <h2 className="text-2xl">September 10, 2022—{daysTillWedding} days remaining</h2>
+      <h2 className="text-2xl">
+        September 10, 2022—{daysTillWedding} days remaining
+      </h2>
       <br />
       <p>
         Ceremony at{" "}
