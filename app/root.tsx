@@ -1,5 +1,6 @@
 import {
   Links,
+  LinksFunction,
   LiveReload,
   Meta,
   Outlet,
@@ -7,15 +8,17 @@ import {
   ScrollRestoration,
 } from "remix";
 import styles from "./tailwind.css";
+import Navbar from "~/components/Navbar";
 import type { MetaFunction } from "remix";
 
 export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
 };
 
-export function links() {
+export let links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: styles }];
-}
+};
+
 export default function App() {
   return (
     <html lang="en">
@@ -26,10 +29,12 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <Navbar />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <footer className="bg-pink-400 p-6 absolute bottom-0 w-full " />
       </body>
     </html>
   );
