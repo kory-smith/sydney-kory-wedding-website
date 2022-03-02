@@ -6,12 +6,16 @@ import {
   Scripts,
   ScrollRestoration,
 } from "remix";
+import styles from "./tailwind.css";
 import type { MetaFunction } from "remix";
 
 export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
 };
 
+export function links() {
+  return [{ rel: "stylesheet", href: styles }];
+}
 export default function App() {
   return (
     <html lang="en">
