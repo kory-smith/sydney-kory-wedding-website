@@ -12,7 +12,7 @@ import Navbar from "~/components/Navbar";
 import type { MetaFunction } from "remix";
 
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
+  return { title: "Sydney and Kory's Wedding Site" };
 };
 
 export let links: LinksFunction = () => {
