@@ -1,3 +1,12 @@
+import { Container } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
+import { LinksFunction } from "remix";
+import styles from "~/styles/index.css";
+
+export let links: LinksFunction = () => {
+  return [{ rel: "stylesheet", href: styles }];
+};
+
 export default function Index() {
   let weddingDay = new Date("9/10/2022");
   let today = new Date(Date.now());
@@ -5,11 +14,8 @@ export default function Index() {
   let daysTillWedding = Math.ceil(difference / (1000 * 3600 * 24));
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl py-2">Sydney and Kory's Wedding Website!</h1>
-      <h2 className="text-2xl">
-        September 10, 2022—{daysTillWedding} days remaining
-      </h2>
+    <Container>
+      <h2>September 10, 2022—{daysTillWedding} days remaining</h2>
       <br />
       <p>
         Ceremony at{" "}
@@ -25,7 +31,7 @@ export default function Index() {
         </a>{" "}
         @ 6:30 p.m. until 11:30 p.m.
       </p>
-      <img src="engagement.jpeg" />
-    </div>
+      <Image src="engagement.jpeg" rounded fluid />
+    </Container>
   );
 }

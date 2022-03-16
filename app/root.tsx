@@ -7,16 +7,17 @@ import {
   Scripts,
   ScrollRestoration,
 } from "remix";
-import styles from "./tailwind.css";
-import Navbar from "~/components/Navbar";
+import { Navigation } from "./components/Navbar";
+import { Footer } from "./components/Footer";
 import type { MetaFunction } from "remix";
+import bootstrap from "bootstrap/dist/css/bootstrap.min.css";
 
 export const meta: MetaFunction = () => {
   return { title: "Sydney and Kory's Wedding Site" };
 };
 
 export let links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: styles }];
+  return [{ rel: "stylesheet", href: bootstrap }];
 };
 
 export default function App() {
@@ -29,12 +30,12 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Navbar />
+        <Navigation />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
-        <footer className="bg-pink-400 p-6 absolute bottom-0 w-full " />
+        <Footer />
       </body>
     </html>
   );
