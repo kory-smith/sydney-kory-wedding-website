@@ -13,19 +13,19 @@ export default function Index() {
       <br />
       <p>
         Ceremony at{" "}
-        <a href="https://goo.gl/maps/WC9LTFoP5mEeL1FE7" target="_blank">
+        <a href="https://goo.gl/maps/WC9LTFoP5mEeL1FE7" target="_blank" rel="noreferrer">
           St. William Church
         </a>{" "}
         @ 5:00 p.m.
       </p>
       <p>
         Reception at{" "}
-        <a href="https://goo.gl/maps/usdDUJEhmsPDbead9" target="_blank">
+        <a href="https://goo.gl/maps/usdDUJEhmsPDbead9" target="_blank" rel="noreferrer">
           The Cincinnati Club
         </a>{" "}
         @ 6:30 p.m. until 11:30 p.m.
       </p>
-      <img src="engagement.jpeg" />
+      <img src="engagement.jpeg" alt="Kory proposing to Sydney" />
     </div>
   );
 }
