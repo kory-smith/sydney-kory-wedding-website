@@ -34,7 +34,7 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
-        <footer className="bg-pink-400 p-6 absolute bottom-0 w-full " />
+        <footer className="bg-[#E2B4A0] p-6 absolute bottom-0 w-full text-center">A big thank you from us!</footer>
       </body>
     </html>
   );
