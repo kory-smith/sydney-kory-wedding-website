@@ -21,20 +21,22 @@ export let links: LinksFunction = () => {
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="en" className="m-0 h-full min-h-full">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="flex flex-col h-screen justify-between">
         <Navbar />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
-        <footer className="bg-[#ECCEC1] p-6 absolute bottom-0 w-full text-center">A big thank you from us!</footer>
+        <footer className="bg-[#ECCEC1] p-6 text-center">
+          A big thank you from us!
+        </footer>
       </body>
     </html>
   );
