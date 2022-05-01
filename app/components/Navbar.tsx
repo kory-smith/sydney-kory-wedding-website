@@ -46,21 +46,6 @@ function Navbar() {
                     Parking
                   </NavLink>
                   <NavLink
-                    to="/directions"
-                    className={({ isActive }) => {
-                      const reg = "px-3 py-2 rounded-md text-sm font-medium";
-                      if (isActive) {
-                        return (
-                          " bg-[#F8F6F1] hover:bg-[#343337] hover:text-white " +
-                          reg
-                        );
-                      }
-                      return "hover:bg-[#343337] hover:text-white " + reg;
-                    }}
-                  >
-                    Directions
-                  </NavLink>
-                  <NavLink
                     to="/registry"
                     className={({ isActive }) => {
                       const reg = "px-3 py-2 rounded-md text-sm font-medium";
