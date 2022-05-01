@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Transition } from "@headlessui/react";
+import { NavLink } from "remix";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,30 +15,66 @@ function Navbar() {
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  <a
-                    href="/"
-                    className=" hover:bg-gray-700 active:text-black text-[#343337] px-3 py-2 rounded-md text-sm font-medium"
+                  <NavLink
+                    to="/"
+                    className={({ isActive }) => {
+                      const reg = "px-3 py-2 rounded-md text-sm font-medium";
+                      if (isActive) {
+                        return (
+                          " bg-[#F8F6F1] hover:bg-[#343337] hover:text-white " +
+                          reg
+                        );
+                      }
+                      return "hover:bg-[#343337] hover:text-white " + reg;
+                    }}
                   >
                     Home
-                </a>
-                  <a
-                    href="/parking"
-                    className=" hover:bg-gray-700 active:text-black text-[#343337] px-3 py-2 rounded-md text-sm font-medium"
+                  </NavLink>
+                  <NavLink
+                    to="/parking"
+                    className={({ isActive }) => {
+                      const reg = "px-3 py-2 rounded-md text-sm font-medium";
+                      if (isActive) {
+                        return (
+                          " bg-[#F8F6F1] hover:bg-[#343337] hover:text-white " +
+                          reg
+                        );
+                      }
+                      return "hover:bg-[#343337] hover:text-white " + reg;
+                    }}
                   >
                     Parking
-                  </a>
-                  <a
-                    href="/directions"
-                    className=" hover:bg-gray-700 active:text-black text-[#343337] px-3 py-2 rounded-md text-sm font-medium"
+                  </NavLink>
+                  <NavLink
+                    to="/directions"
+                    className={({ isActive }) => {
+                      const reg = "px-3 py-2 rounded-md text-sm font-medium";
+                      if (isActive) {
+                        return (
+                          " bg-[#F8F6F1] hover:bg-[#343337] hover:text-white " +
+                          reg
+                        );
+                      }
+                      return "hover:bg-[#343337] hover:text-white " + reg;
+                    }}
                   >
                     Directions
-                  </a>
-                  <a
-                    href="/registry"
-                    className=" hover:bg-gray-700 active:text-black text-[#343337] px-3 py-2 rounded-md text-sm font-medium"
+                  </NavLink>
+                  <NavLink
+                    to="/registry"
+                    className={({ isActive }) => {
+                      const reg = "px-3 py-2 rounded-md text-sm font-medium";
+                      if (isActive) {
+                        return (
+                          " bg-[#F8F6F1] hover:bg-[#343337] hover:text-white " +
+                          reg
+                        );
+                      }
+                      return "hover:bg-[#343337] hover:text-white " + reg;
+                    }}
                   >
                     Registry
-                  </a>
+                  </NavLink>
                 </div>
               </div>
             </div>
