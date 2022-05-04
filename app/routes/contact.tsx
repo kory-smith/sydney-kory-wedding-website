@@ -2,7 +2,7 @@ import { ActionFunction, LoaderFunction, redirect, useLoaderData } from "remix";
 import * as yup from "yup";
 import { validationError, ValidatedForm } from "remix-validated-form";
 import { withYup } from "@remix-validated-form/with-yup";
-import { MyInput, MySubmitButton } from "~/components/Input";
+import { MyInput, MySubmitButton, MyTextArea } from "~/components/Input";
 
 // Using yup in this example, but you can use anything
 const validator = withYup(
@@ -10,15 +10,15 @@ const validator = withYup(
     firstName: yup.string().label("First Name").required(),
     lastName: yup.string().label("Last Name").required(),
     email: yup.string().email().label("Email").required(),
+		message: yup.string().label("Message").required()
   })
 );
 
 export const action: ActionFunction = async ({ request }) => {
   const fieldValues = await validator.validate(await request.formData());
   if (fieldValues.error) return validationError(fieldValues.error);
-  const { firstName, lastName, email } = fieldValues.data;
+  const { firstName, lastName, email, message } = fieldValues.data;
 
-	console.log({firstName})
 
   // Do something with correctly typed values;
 
@@ -46,6 +46,7 @@ export default function MyForm() {
       <MyInput name="firstName" label="First Name" />
       <MyInput name="lastName" label="Last Name" />
       <MyInput name="email" label="Email" />
+      <MyTextArea name="message" label="Message" />
       <MySubmitButton />
     </ValidatedForm>
   );

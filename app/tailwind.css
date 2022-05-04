@@ -649,6 +649,11 @@ a {
   border-color: rgb(52 51 55 / var(--tw-border-opacity));
 }
 
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
 .bg-\[\#ECCEC1\] {
   --tw-bg-opacity: 1;
   background-color: rgb(236 206 193 / var(--tw-bg-opacity));
@@ -765,6 +770,11 @@ a {
 .text-\[\#E3D8C6\] {
   --tw-text-opacity: 1;
   color: rgb(227 216 198 / var(--tw-text-opacity));
+}
+
+.text-\[\#FF0000\] {
+  --tw-text-opacity: 1;
+  color: rgb(255 0 0 / var(--tw-text-opacity));
 }
 
 .opacity-0 {
