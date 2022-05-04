@@ -3,6 +3,8 @@ import * as yup from "yup";
 import { validationError, ValidatedForm } from "remix-validated-form";
 import { withYup } from "@remix-validated-form/with-yup";
 import { MyInput, MySubmitButton, MyTextArea } from "~/components/Input";
+import { sendEmail } from "~/services/emailer.server";
+
 
 // Using yup in this example, but you can use anything
 const validator = withYup(
@@ -19,6 +21,7 @@ export const action: ActionFunction = async ({ request }) => {
   if (fieldValues.error) return validationError(fieldValues.error);
   const { firstName, lastName, email, message } = fieldValues.data;
 
+	await sendEmail();
 
   // Do something with correctly typed values;
 
