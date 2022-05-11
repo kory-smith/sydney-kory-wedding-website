@@ -14,7 +14,7 @@ export const MyInput = ({ name, label }: MyInputProps) => {
   return (
     <div>
       <label htmlFor={name}>{label}</label>
-      <input {...getInputProps({ id: name })} className="border-2 border-black" />
+      <input {...getInputProps({ id: name })} className="border-2 border-black" onFocus={(e) => e.target.value = ""} />
       {error && <span className="text-[#FF0000]">{error}</span>}
     </div>
   );
@@ -25,7 +25,7 @@ export const MyTextArea = ({ name, label }: MyInputProps) => {
   return (
     <div>
       <label htmlFor={name}>{label}</label>
-      <textarea {...getInputProps({ id: name })} className="border-2 border-black" />
+      <textarea {...getInputProps({ id: name })} className="border-2 border-black" onFocus={(e) => e.target.value = ""} />
       {error && <span className="text-[#FF0000]">{error}</span>}
     </div>
   );
