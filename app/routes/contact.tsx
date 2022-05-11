@@ -9,8 +9,7 @@ import { sendEmail } from "~/services/emailer.server";
 // Using yup in this example, but you can use anything
 const validator = withYup(
   yup.object({
-    firstName: yup.string().label("First Name").required(),
-    lastName: yup.string().label("Last Name").required(),
+    name: yup.string().label("Name").required(),
     email: yup.string().email().label("Email").required(),
 		message: yup.string().label("Message").required()
   })
@@ -19,9 +18,9 @@ const validator = withYup(
 export const action: ActionFunction = async ({ request }) => {
   const fieldValues = await validator.validate(await request.formData());
   if (fieldValues.error) return validationError(fieldValues.error);
-  const { firstName, lastName, email, message } = fieldValues.data;
+  const { email, message, name } = fieldValues.data;
 
-	await sendEmail();
+	await sendEmail(name, email, message );
 
   // Do something with correctly typed values;
 
@@ -31,9 +30,9 @@ export const action: ActionFunction = async ({ request }) => {
 export const loader: LoaderFunction = () => {
   return {
     defaultValues: {
-      firstName: "Jane",
-      lastName: "Doe",
-      email: "jane.doe@example.com",
+      name: "Spook Jackson",
+      email: "spook@gmail.com",
+      message: "I never thought I'd know somebody as handsome as you.",
     },
   };
 };
@@ -46,8 +45,7 @@ export default function MyForm() {
       method="post"
       defaultValues={defaultValues}
     >
-      <MyInput name="firstName" label="First Name" />
-      <MyInput name="lastName" label="Last Name" />
+      <MyInput name="name" label="Name" />
       <MyInput name="email" label="Email" />
       <MyTextArea name="message" label="Message" />
       <MySubmitButton />
