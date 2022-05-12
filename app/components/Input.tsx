@@ -12,9 +12,9 @@ type MyInputProps = {
 export const MyInput = ({ name, label }: MyInputProps) => {
   const { error, getInputProps } = useField(name);
   return (
-    <div>
+    <div className="flex flex-col mb-4 md:w-1/2">
       <label htmlFor={name}>{label}</label>
-      <input {...getInputProps({ id: name })} className="border-2 border-black" onFocus={(e) => e.target.value = ""} />
+      <input {...getInputProps({ id: name })} className="border py-2 px-3 text-grey-darkest md:mr-2" onFocus={(e) => e.target.value = ""} />
       {error && <span className="text-[#FF0000]">{error}</span>}
     </div>
   );
@@ -23,9 +23,9 @@ export const MyInput = ({ name, label }: MyInputProps) => {
 export const MyTextArea = ({ name, label }: MyInputProps) => {
   const { error, getInputProps } = useField(name);
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
-      <textarea {...getInputProps({ id: name })} className="border-2 border-black" onFocus={(e) => e.target.value = ""} />
+    <div className="flex flex-col mb-4 md:w-1/2">
+      <label className="mb-2 uppercase font-bold text-lg text-grey-darkest md:ml-2" htmlFor={name}>{label}</label>
+      <textarea {...getInputProps({ id: name })} className="border py-2 px-3 text-grey-darkest md:mr-2" onFocus={(e) => e.target.value = ""} />
       {error && <span className="text-[#FF0000]">{error}</span>}
     </div>
   );

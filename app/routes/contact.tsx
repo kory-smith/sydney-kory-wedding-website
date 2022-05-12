@@ -40,15 +40,21 @@ export const loader: LoaderFunction = () => {
 export default function MyForm() {
   const { defaultValues } = useLoaderData();
   return (
+    <div className="flex items-center h-screen w-full bg-teal-lighter">
+      <div className="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
+      <h1 className="block w-full text-center text-grey-darkest mb-6">Sign Up</h1>
     <ValidatedForm
       validator={validator}
       method="post"
       defaultValues={defaultValues}
+          className="mb-4 md:flex md:flex-wrap md:justify-between"
     >
       <MyInput name="name" label="Name" />
       <MyInput name="email" label="Email" />
       <MyTextArea name="message" label="Message" />
       <MySubmitButton />
     </ValidatedForm>
+      </div>
+    </div>
   );
 }
