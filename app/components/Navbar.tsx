@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Transition } from "@headlessui/react";
-import { NavLink } from "remix";
+import { Link, NavLink } from "remix";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,7 +73,7 @@ function Navbar() {
                       return "hover:bg-[#343337] hover:text-white " + reg;
                     }}
                   >
-                  Contact
+                    Contact
                   </NavLink>
                 </div>
               </div>
@@ -137,12 +137,30 @@ function Navbar() {
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Home
-                </a>
+                </Link>
+                <Link
+                  to="/parking"
+                  className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Parking
+                </Link>
+                <Link
+                  to="/registry"
+                  className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Registry
+                </Link>
+                <Link
+                  to="/contact"
+                  className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Contact
+                </Link>
               </div>
             </div>
           )}
