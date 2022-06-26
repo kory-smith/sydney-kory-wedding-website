@@ -37,8 +37,8 @@ export default function MyForm() {
       method="post"
       className="mb-4 md:flex md:flex-wrap md:justify-between"
     >
-      <MyInput name="name" label="Name" placeholder="Spook Jackson" />
-      <MyInput name="email" label="Email" placeholder="spook@gmail.com" />
+      <MyInput name="name" label="Name" placeholder="Ash Ketchum" />
+      <MyInput name="email" label="Email" placeholder="ash@gmail.com" />
       <MyTextArea name="message" label="Message" placeholder="Wow, Sydney and Kory. I have never met anybody as cool/handsome as you. Great job."/>
       <MySubmitButton />
     </ValidatedForm>
