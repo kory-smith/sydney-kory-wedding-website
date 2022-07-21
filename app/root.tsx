@@ -10,6 +10,7 @@ import {
 import styles from "./tailwind.css";
 import Navbar from "~/components/Navbar";
 import type { MetaFunction } from "remix";
+import Footer from "./components/Footer";
 
 export const meta: MetaFunction = () => {
   return { title: "Sydney and Kory's Wedding Site" };
@@ -28,15 +29,13 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="flex flex-col h-screen justify-between">
+      <body className="flex flex-col h-full w-full justify-between">
         <Navbar />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
-        <footer className="bg-[#ECCEC1] p-6 text-center">
-          A big thank you from us!
-        </footer>
+        <Footer />
       </body>
     </html>
   );
