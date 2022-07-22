@@ -26,6 +26,9 @@ import {
   BadgeCheckIcon,
   CashIcon,
   ClockIcon,
+  FireIcon,
+  GiftIcon,
+  HomeIcon,
   ReceiptRefundIcon,
   UsersIcon,
 } from "@heroicons/react/outline";
@@ -33,31 +36,40 @@ import {
 const actions = [
   {
     title: "Amazon",
-    href: "#",
-    icon: ClockIcon,
-    iconForeground: "text-teal-700",
-    iconBackground: "bg-teal-50",
+    href: "https://www.amazon.com/wedding/registry/3N8WRFU8TLW7E",
+    icon: HomeIcon,
+    iconForeground: "text-yellow-700",
+    iconBackground: "bg-yellow-50",
+    description: "Home goods and board games",
   },
   {
     title: "Macy's",
-    href: "#",
-    icon: BadgeCheckIcon,
-    iconForeground: "text-purple-700",
-    iconBackground: "bg-purple-50",
+    href: "https://www.macys.com/wgl/registry/guest/7353338",
+    icon: GiftIcon,
+    iconForeground: "text-red-700",
+    iconBackground: "bg-red-50",
+    description: "Mostly dinnerware",
   },
   {
     title: "Target",
-    href: "#",
-    icon: UsersIcon,
-    iconForeground: "text-sky-700",
-    iconBackground: "bg-sky-50",
+    href: "https://www.target.com/gift-registry/gift-giver?registryId=9139e060-df80-11ec-9013-87ba5562a77d&type=WEDDING",
+    icon: FireIcon,
+    iconForeground: "text-red-700",
+    iconBackground: "bg-red-50",
+    description: "Kitchenware and home goods",
   },
   {
-    title: "This is another thing we will say",
+    title: "Gift cards",
     href: "#",
     icon: CashIcon,
     iconForeground: "text-yellow-700",
     iconBackground: "bg-yellow-50",
+    description: ` We would also love:
+    Visa gift cards
+    Blue Apron gift cards
+    Restaurant gift cards
+    Experience gift cards 
+    `,
   },
 ];
 
@@ -67,11 +79,11 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-100">
       <h1 className="text-center p-4 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
         Our Registries
       </h1>
-      <div className="rounded-lg inline-block max-w-7xl align-middle m-auto bg-gray-200 overflow-hidden shadow divide-y  divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
+      <div className="rounded-lg mx-auto lg:mt-20 inline-block max-w-7xl bg-gray-200 overflow-hidden shadow divide-y  divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
         {actions.map((action, actionIdx) => (
           <div
             key={action.title}
@@ -100,17 +112,13 @@ export default function Example() {
             </div>
             <div className="mt-8">
               <h3 className="text-lg font-medium">
-                <a href={action.href} className="focus:outline-none">
+                <a href={action.href} className="focus:outline-none" target="_blank" rel="noreferrer">
                   {/* Extend touch target to entire panel */}
                   <span className="absolute inset-0" aria-hidden="true" />
                   {action.title}
                 </a>
               </h3>
-              <p className="mt-2 text-sm text-gray-500">
-                Doloribus dolores nostrum quia qui natus officia quod et
-                dolorem. Sit repellendus qui ut at blanditiis et quo et
-                molestiae.
-              </p>
+              <p className="mt-2 text-sm text-gray-500">{action.description}</p>
             </div>
             <span
               className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
