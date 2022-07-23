@@ -9,7 +9,7 @@ export default function Example() {
       <main className="relative h-full">
         <div className="h-full">
           <div className="relative h-full">
-            <div className="max-w-7xl  mx-auto h-5/6 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mt-10 relative  mx-auto h-5/6 sm:px-6 lg:px-8">
               <div className="relative shadow-xl h-full sm:rounded-2xl sm:overflow-hidden">
                 <div className="absolute inset-0 m-auto">
                   <img
