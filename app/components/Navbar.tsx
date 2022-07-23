@@ -1,173 +1,124 @@
-import { useState } from "react";
-import { Transition } from "@headlessui/react";
-import { Link, NavLink } from "remix";
+/* This example requires Tailwind CSS v2.0+ */
+import { Disclosure } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { NavLink } from "remix";
 
-function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+function styleNavLinkIfActive(isActive: boolean) {
+  return isActive
+    ? "border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+    : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium";
+}
+
+function styleMobileLinkIfActive(isActive: boolean) {
+  return isActive
+    ? "bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+    : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium";
+}
+
+export default function Example() {
   return (
-    <div className="flex-none">
-      <nav className="bg-[#ECCEC1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <img className="h-8 w-8" src="favicon.ico" alt="Workflow" />
-              </div>
-              <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
+    <Disclosure as="nav" className=" bg-[#eccec1] shadow">
+      {({ open }) => (
+        <>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16">
+              <div className="flex">
+                <div className="flex-shrink-0 flex items-center">
+                  <img
+                    className="block lg:hidden h-8 w-auto"
+                    src="/favicon.ico"
+                    alt="Workflow"
+                  />
+                  <img
+                    className="hidden lg:block h-8 w-auto"
+                    src="/favicon.ico"
+                    alt="Workflow"
+                  />
+                </div>
+                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                   <NavLink
                     to="/"
-                    className={({ isActive }) => {
-                      const reg = "px-3 py-2 rounded-md text-sm font-medium";
-                      if (isActive) {
-                        return (
-                          " bg-[#F8F6F1] hover:bg-[#343337] hover:text-white " +
-                          reg
-                        );
-                      }
-                      return "hover:bg-[#343337] hover:text-white " + reg;
-                    }}
+                    className={({ isActive }) => styleNavLinkIfActive(isActive)}
                   >
                     Home
                   </NavLink>
                   <NavLink
                     to="/parking"
-                    className={({ isActive }) => {
-                      const reg = "px-3 py-2 rounded-md text-sm font-medium";
-                      if (isActive) {
-                        return (
-                          " bg-[#F8F6F1] hover:bg-[#343337] hover:text-white " +
-                          reg
-                        );
-                      }
-                      return "hover:bg-[#343337] hover:text-white " + reg;
-                    }}
+                    className={({ isActive }) => styleNavLinkIfActive(isActive)}
                   >
                     Parking
                   </NavLink>
                   <NavLink
                     to="/registry"
-                    className={({ isActive }) => {
-                      const reg = "px-3 py-2 rounded-md text-sm font-medium";
-                      if (isActive) {
-                        return (
-                          " bg-[#F8F6F1] hover:bg-[#343337] hover:text-white " +
-                          reg
-                        );
-                      }
-                      return "hover:bg-[#343337] hover:text-white " + reg;
-                    }}
+                    className={({ isActive }) => styleNavLinkIfActive(isActive)}
                   >
                     Registry
                   </NavLink>
                   <NavLink
-                    to="/contact"
-                    className={({ isActive }) => {
-                      const reg = "px-3 py-2 rounded-md text-sm font-medium";
-                      if (isActive) {
-                        return (
-                          " bg-[#F8F6F1] hover:bg-[#343337] hover:text-white " +
-                          reg
-                        );
-                      }
-                      return "hover:bg-[#343337] hover:text-white " + reg;
-                    }}
+                    to="/rsvp"
+                    className={({ isActive }) => styleNavLinkIfActive(isActive)}
+                  >
+                    RSVP
+                  </NavLink>
+                  <NavLink
+                    to="Contact"
+                    className={({ isActive }) => styleNavLinkIfActive(isActive)}
                   >
                     Contact
                   </NavLink>
                 </div>
               </div>
-            </div>
-            <div className="-mr-2 flex md:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                type="button"
-                className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                aria-controls="mobile-menu"
-                aria-expanded="false"
-              >
-                <span className="sr-only">Open main menu</span>
-                {!isOpen ? (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <Transition
-          show={isOpen}
-          enter="transition ease-out duration-100 transform"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="transition ease-in duration-75 transform"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-        >
-          {(ref) => (
-            <div className="md:hidden" id="mobile-menu">
-              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <Link
-                  to="/"
-                  className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/parking"
-                  className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Parking
-                </Link>
-                <Link
-                  to="/registry"
-                  className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Registry
-                </Link>
-                <Link
-                  to="/contact"
-                  className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Contact
-                </Link>
+              <div className="-mr-2 flex items-center sm:hidden">
+                {/* Mobile menu button */}
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <span className="sr-only">Open main menu</span>
+                  {open ? (
+                    <XIcon className="block h-6 w-6" aria-hidden="true" />
+                  ) : (
+                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                  )}
+                </Disclosure.Button>
               </div>
             </div>
-          )}
-        </Transition>
-      </nav>
-    </div>
+          </div>
+
+          <Disclosure.Panel className="sm:hidden">
+            <div className="pt-2 pb-3 space-y-1">
+              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
+              <NavLink
+                to="/"
+                className={({ isActive }) => styleMobileLinkIfActive(isActive)}
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="/parking"
+                className={({ isActive }) => styleMobileLinkIfActive(isActive)}
+              >
+                Parking
+              </NavLink>
+              <NavLink
+                to="/registry"
+                className={({ isActive }) => styleMobileLinkIfActive(isActive)}
+              >
+                Registry
+              </NavLink>
+              <NavLink
+                to="/rsvp"
+                className={({ isActive }) => styleMobileLinkIfActive(isActive)}
+              >
+                RSVP
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) => styleMobileLinkIfActive(isActive)}
+              >
+                Contact
+              </NavLink>
+            </div>
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
   );
 }
-
-export default Navbar;
