@@ -775,6 +775,16 @@ a {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#5b463d\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(91 70 61 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#eccec1\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 206 193 / var(--tw-bg-opacity));
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
