@@ -17,7 +17,7 @@ function styleMobileLinkIfActive(isActive: boolean) {
 
 export default function Example() {
   return (
-    <Disclosure as="nav" className=" bg-[#ECCEC1] shadow">
+    <Disclosure as="nav" className=" bg-[#eccec1] shadow">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,6 +53,12 @@ export default function Example() {
                     className={({ isActive }) => styleNavLinkIfActive(isActive)}
                   >
                     Registry
+                  </NavLink>
+                  <NavLink
+                    to="/rsvp"
+                    className={({ isActive }) => styleNavLinkIfActive(isActive)}
+                  >
+                    RSVP
                   </NavLink>
                   <NavLink
                     to="Contact"
@@ -96,6 +102,12 @@ export default function Example() {
                 className={({ isActive }) => styleMobileLinkIfActive(isActive)}
               >
                 Registry
+              </NavLink>
+              <NavLink
+                to="/rsvp"
+                className={({ isActive }) => styleMobileLinkIfActive(isActive)}
+              >
+                RSVP
               </NavLink>
               <NavLink
                 to="/contact"
