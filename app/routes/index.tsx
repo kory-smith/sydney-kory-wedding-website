@@ -20,12 +20,22 @@ export default function Example() {
                   <div className="absolute inset-0 bg-gray-300 mix-blend-multiply" />
                 </div>
                 <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
-                  <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                  <h1 className="pb-80 text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
                     <span className="block text-white">September 10, 2022</span>
                     <span className="block text-indigo-200">
                       {daysTillWedding} days left!
                     </span>
                   </h1>
+                  <div className="bg-black/75 rounded-md p-4">
+                    <h1 className="text-center text-white text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                      Ceremony: 5PM, St. William Church 4108 West 8th Street,
+                      Cincinnati, OH 45205
+                    </h1>
+                    <h1 className="pt-8 text-white text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                        Reception: 6:30PM, The Cincinnati Club 30 Garfield
+                        Place, Cincinnati, OH 45202
+                    </h1>
+                  </div>
                 </div>
               </div>
             </div>
